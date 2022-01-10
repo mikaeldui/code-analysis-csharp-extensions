@@ -1,3 +1,3 @@
-# Mikael Dúi's C# Code Analysis Helpers & Extensions
+# Mikael Dúi's C# Code Analysis Extensions
 
-A collection of helpers and extensions for [Microsoft.CodeAnalysis.CSharp](https://www.nuget.org/packages/Microsoft.CodeAnalysis.CSharp).
+A collection of extensions for [Microsoft.CodeAnalysis.CSharp](https://www.nuget.org/packages/Microsoft.CodeAnalysis.CSharp).
