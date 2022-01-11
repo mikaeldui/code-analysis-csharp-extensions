@@ -12,8 +12,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax
         public static type WithArgumentList(this type @this, string text) =>
             @this.WithArgumentList(ParseAttributeArgumentList(text));
 
+        public static type ToAttribute(this string @this) =>
+            Attribute(ParseName(@this));
+
         public static type ToAttribute(this (string identifier, string argument) @this) =>
-            Attribute(ParseName(@this.identifier)).WithArgumentList($"(\"{@this.argument}\")");
+           @this.identifier.ToAttribute().WithArgumentList($"(\"{@this.argument}\")");
 
         public static AttributeListSyntax ToAttributeList(this type @this) => AttributeList(SingletonSeparatedList(@this));
         

@@ -15,6 +15,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax
         public static DeclarationSyntax AddAttributes(this DeclarationSyntax @this, params AttributeSyntax[] attributes) =>
             @this.AddAttributeLists(attributes.ToAttributeList());
 
+        public static DeclarationSyntax AddAttribute(this DeclarationSyntax @this, string identifier) =>
+            @this.AddAttribute(identifier.ToAttribute());
+
         public static DeclarationSyntax AddAttribute(this DeclarationSyntax @this, string identifier, string argument) =>
             @this.AddAttribute((identifier, argument).ToAttribute());
     }
