@@ -9,6 +9,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax
 
     public static class ClassDeclarationSyntaxExtensions
     {
+        public static DeclarationSyntax WithBaseType(this DeclarationSyntax @this, BaseTypeSyntax baseType) =>
+            @this.WithBaseList(baseType.ToBaseList());
+
+        public static DeclarationSyntax WithBaseType(this DeclarationSyntax @this, string baseTypeName) =>
+            @this.WithBaseType(SimpleBaseType(baseTypeName.ToType()));
+
         public static DeclarationSyntax AddBaseType(this DeclarationSyntax @this, string baseTypeName) =>
             @this.AddBaseListTypes(SimpleBaseType(ParseTypeName(baseTypeName)));
 

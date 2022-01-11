@@ -9,6 +9,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax
 
     public static class PropertyDeclarationSyntaxExtensions
     {
+        public static DeclarationSyntax WithModifier(this DeclarationSyntax @this, SyntaxToken modifier) =>
+            @this.WithModifiers(TokenList(modifier));
+
+        public static DeclarationSyntax WithModifier(this DeclarationSyntax @this, SyntaxKind modifier) =>
+            @this.WithModifier(modifier.ToToken());
+
+        public static DeclarationSyntax WithModifiers(this DeclarationSyntax @this, params SyntaxKind[] modifiers) =>
+            @this.WithModifiers(modifiers.ToTokenList());
+
+        public static DeclarationSyntax WithModifiers(this DeclarationSyntax @this, IEnumerable<SyntaxKind> modifiers) =>
+            @this.WithModifiers(modifiers.ToTokenList());
+
         public static DeclarationSyntax AddModifier(this DeclarationSyntax @this, SyntaxKind modifier) =>
             @this.AddModifiers(modifier.ToToken());
 
@@ -26,5 +38,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax
 
         public static DeclarationSyntax AddAttribute(this DeclarationSyntax @this, string identifier, string argument) =>
             @this.AddAttribute((identifier, argument).ToAttribute());
+
+        public static DeclarationSyntax WithAccessor(this DeclarationSyntax @this, AccessorDeclarationSyntax accessor) =>
+            @this.WithAccessorList(accessor.ToAccessorList());
+
+        public static DeclarationSyntax WithAccessor(this DeclarationSyntax @this, SyntaxKind kind) =>
+            @this.WithAccessor(kind.ToAccessor());
+
+        public static DeclarationSyntax WithAccessor(this DeclarationSyntax @this, SyntaxKind kind, BlockSyntax body) =>
+            @this.WithAccessor(AccessorDeclaration(kind, body));
+
+        public static DeclarationSyntax WithAccessor(this DeclarationSyntax @this, SyntaxKind kind, string bodyStatement) =>
+            @this.WithAccessor(kind, bodyStatement.ToBlock());
+
     }
 }

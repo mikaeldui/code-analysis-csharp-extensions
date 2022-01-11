@@ -5,10 +5,10 @@ using System.Text;
 namespace Microsoft.CodeAnalysis.CSharp.Syntax
 {
     using static SyntaxFactory;
-    using type = BlockSyntax;
+    using type = NameSyntax;
 
-    public static class BlockSyntaxExtensions
+    public static class NameSyntaxExtensions
     {
-        public static type ToBlock(this string @this) => @this.ToStatement().ToBlock();
+        public static type ToName(this string @this) => ParseName(@this);
     }
 }

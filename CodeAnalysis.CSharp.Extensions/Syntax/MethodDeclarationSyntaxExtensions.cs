@@ -9,6 +9,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax
 
     public static class MethodDeclarationSyntaxExtensions
     {
+        public static DeclarationSyntax WithModifier(this DeclarationSyntax @this, SyntaxKind modifier) =>
+            @this.WithModifiers(modifier.ToTokenList());
+
+        public static DeclarationSyntax WithModifiers(this DeclarationSyntax @this, params SyntaxKind[] modifiers) =>
+            @this.WithModifiers(modifiers.ToTokenList());
+
+        public static DeclarationSyntax WithModifiers(this DeclarationSyntax @this, IEnumerable<SyntaxKind> modifiers) =>
+            @this.WithModifiers(modifiers.ToTokenList());
+
         public static DeclarationSyntax AddModifier(this DeclarationSyntax @this, SyntaxKind modifier) =>
             @this.AddModifiers(modifier.ToToken());
 
