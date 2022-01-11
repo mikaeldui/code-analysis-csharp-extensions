@@ -7,7 +7,7 @@ jobs:
     name: "Build & Pack"
     uses: mikaeldui/actions/.github/workflows/dotnet-build-and-pack.yml@main
     with:
-      project_directory: ./CodeAnalysis.CSharp
+      project_directory: ./CodeAnalysis.CSharp.Extensions
       
   nuget-org:
     name: 'NuGet.org'
