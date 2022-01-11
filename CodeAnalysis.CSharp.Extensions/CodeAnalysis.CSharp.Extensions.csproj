@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
+	<LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Microsoft.CodeAnalysis.CSharp</RootNamespace>
+    <PackageId>MikaelDui.CodeAnalysis.CSharp.Extensions</PackageId>
+    <Authors>Mikael Dúi Bolinder</Authors>
+    <Product>C# Code Analysis Extensions</Product>
+    <Description>Extensions for the Microsoft.CodeAnalysis.CSharp namespace, making code analysis a bit easier.</Description>
+    <PackageProjectUrl>https://github.com/mikaeldui/code-analysis-csharp-extensions</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/mikaeldui/code-analysis-csharp-extensions</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>Roslyn; CodeAnalysis; CSharp; CodeGeneration</PackageTags>
+    <PackageLicenseExpression>Unlicense</PackageLicenseExpression>
+    <PackageIcon>Bulb-512x512.png</PackageIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Bulb-512x512.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.Compilers" Version="*" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="*" />
+  </ItemGroup>
+
+</Project>
