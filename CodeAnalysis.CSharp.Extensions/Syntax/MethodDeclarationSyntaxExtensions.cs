@@ -39,10 +39,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax
         public static DeclarationSyntax WithBody(this DeclarationSyntax @this, string bodyStatement) =>
             @this.WithBody(bodyStatement.ToBlock());
 
-        public static ConstructorDeclarationSyntax WithParameter(this ConstructorDeclarationSyntax @this, string parameterType, string parameterIdentifier) =>
+        public static DeclarationSyntax WithParameter(this DeclarationSyntax @this, string parameterType, string parameterIdentifier) =>
             @this.WithParameterList((parameterIdentifier, parameterType).ToParameterList());
 
-        public static ConstructorDeclarationSyntax WithParameters(this ConstructorDeclarationSyntax @this, IEnumerable<KeyValuePair<string, string>> parameters) =>
+        public static DeclarationSyntax WithParameters(this DeclarationSyntax @this, IEnumerable<KeyValuePair<string, string>> parameters) =>
             @this.WithParameterList(parameters.ToParameterList());
     }
 }
